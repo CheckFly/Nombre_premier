@@ -8,10 +8,12 @@ int main()
 {
     using std::vector;
 
-    unsigned int    nbElement=100000,
+    unsigned int    nbElement=90000,
                     ligne=1,
                     cpt=0;
-
+    printf("insert le nombre element :");
+    scanf("%i", &nbElement);
+    printf("\n");
 
     vector<vector<unsigned int>> v;
 
@@ -63,13 +65,13 @@ int main()
         printf("\n");
     }
 */
-    printf("Affichage nb Premier\n");
-    for(unsigned int i=0;i<v.size() ;i++){
-        printf("index : %i:%i ",i,v[i][0]);
-        printf("\n");
-    }
-
-
+//    printf("Affichage nb Premier\n");
+//    for(unsigned int i=0;i<v.size() ;i++){
+//        printf("index : %i:%i ",i,v[i][0]);
+//        printf("\n");
+//    }
+    unsigned int total=v.size()-1;
+    printf("nombre de nb premier %i %i",total, v[total][0]);
 
     return 0;
 }
