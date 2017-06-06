@@ -1,14 +1,12 @@
 #include <iostream>
-#include <vector>
+
 
 
 using namespace std;
 
 int main()
 {
-    using std::vector;
 
-    vector<int> t(519000);
     unsigned int    nbElement=1730,
                     ligne=1,
                     cpt=0,
