@@ -7,21 +7,23 @@ using namespace std;
 int main()
 {
     using std::vector;
-    vector<int> t(519000);
 
     unsigned int    nbElement=1730,
                     ligne=1,
                     cpt=0,
                     nbPremier=300;
 
-    unsigned int tbl[nbPremier][nbElement];
-    printf("initialisation\n");
+    vector<vector<unsigned int>> v(1,0);
 
-    for(unsigned int i=0;i<nbPremier;i++){
-        for(unsigned int j=0;j<nbElement;j++){
-            tbl[i][j]=0;
-        }
-    }
+    unsigned int tbl[nbPremier][nbElement];
+//    printf("initialisation\n");
+//
+//    for(unsigned int i=0;i<nbPremier;i++){
+//        for(unsigned int j=0;j<nbElement;j++){
+//            tbl[i][j]=0;
+//        }
+//    }
+
     printf("incrément des nombres\n");
     for(unsigned int i=1;i<nbElement+1;i++){
         tbl[0][i-1]=i;
