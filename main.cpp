@@ -1,8 +1,10 @@
 #include <iostream>
+#include <chrono>
 #include <vector>
 
 
 using namespace std;
+using namespace std::chrono;
 
 int main()
 {
@@ -12,9 +14,12 @@ int main()
                     ligne=2,
                     cpt=0;
 
+
     printf("insert le nombre element :");
     scanf("%i", &nbElement);
     printf("\n");
+
+    auto avant = system_clock::now();
 
     vector<vector<bool>> v;
     vector<unsigned int> tblNbElement(nbElement);
@@ -84,7 +89,10 @@ int main()
 //        printf("\n");
 //    }
     unsigned int total=tblNbPremier.size()-1;
-    printf("nombre de nb premier %i %i",total, tblNbPremier[total]);
 
+    auto apres = system_clock::now();
+
+    printf("nombre de nb premier %i %i \n",total, tblNbPremier[total]);
+    printf("temps %i ms", (int)duration_cast<milliseconds>(apres-avant).count());
     return 0;
 }
