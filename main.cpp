@@ -8,14 +8,16 @@ int main()
 {
     using std::vector;
 
-    unsigned int    nbElement=1730,
+    unsigned int    nbElement=100000,
                     ligne=1,
-                    cpt=0,
-                    nbPremier=300;
+                    cpt=0;
 
-    vector<vector<unsigned int>> v(1,0);
 
-    unsigned int tbl[nbPremier][nbElement];
+    vector<vector<unsigned int>> v;
+
+    v.push_back(vector<unsigned int>(nbElement,0));
+
+//    unsigned int tbl[nbPremier][nbElement];
 //    printf("initialisation\n");
 //
 //    for(unsigned int i=0;i<nbPremier;i++){
@@ -26,14 +28,14 @@ int main()
 
     printf("incrément des nombres\n");
     for(unsigned int i=1;i<nbElement+1;i++){
-        tbl[0][i-1]=i;
+        v[0][i-1]=i;
     }
 
     printf("recher nb Premier\n");
 
     for(unsigned int col=1;col<nbElement;col++){
         for(unsigned int li=1;li<ligne;li++){
-            cpt+=tbl[li][col];
+            cpt+=v[li][col];
             if(cpt!=0){
                 //printf("sortie boucle ligne %i col %i\n",li,col);
                 break;
@@ -42,9 +44,10 @@ int main()
         if(cpt==0){
             // insertion du nom de la ligne
             //printf("insertion nb Premier %i\n",ligne);
-            tbl[ligne][0]=tbl[0][col];
-            for(unsigned int i=col;i<nbElement;i=i+tbl[ligne][0]){
-                tbl[ligne][i]=1;
+            v.push_back(vector<unsigned int>(nbElement,0));
+            v[ligne][0]=v[0][col];
+            for(unsigned int i=col;i<nbElement;i=i+v[ligne][0]){
+                v[ligne][i]=1;
             }
             ligne++;
         }
@@ -61,8 +64,8 @@ int main()
     }
 */
     printf("Affichage nb Premier\n");
-    for(unsigned int i=0;i<nbPremier;i++){
-        printf("index : %i:%i ",i,tbl[i][0]);
+    for(unsigned int i=0;i<v.size() ;i++){
+        printf("index : %i:%i ",i,v[i][0]);
         printf("\n");
     }
 
