@@ -33,13 +33,13 @@ int main()
         for(unsigned int li=1;li<ligne;li++){
             cpt+=tbl[li][col];
             if(cpt!=0){
-                printf("sortie boucle ligne %i col %i\n",li,col);
+                //printf("sortie boucle ligne %i col %i\n",li,col);
                 break;
             }
         }
         if(cpt==0){
             // insertion du nom de la ligne
-            printf("insertion nb Premier %i\n",ligne);
+            //printf("insertion nb Premier %i\n",ligne);
             tbl[ligne][0]=tbl[0][col];
             for(unsigned int i=col;i<nbElement;i=i+tbl[ligne][0]){
                 tbl[ligne][i]=1;
